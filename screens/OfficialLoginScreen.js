@@ -55,8 +55,10 @@ class LoginScren extends Component {
                       this.props.userProfile("official", snapshot.val().fname, snapshot.val().lname, snapshot.val().imageUrl, snapshot.val().email)
                       this.props.navigation.navigate("Home")
                       console.log('success')
-
                     }
+                    else {
+                      this.setState({ isLoading: false })
+                   }
                   })
               }
             }
@@ -171,11 +173,7 @@ class LoginScren extends Component {
 
         <TouchableWithoutFeedback style={styles.container}
           onPress={Keyboard.dismiss}>
-          <KeyboardAvoidingView
-            behavior='padding'
-            keyboardVerticalOffset={40}
-          >
-            <View style={styles.login}>
+          <View style={styles.login}>
               <Image
                 source={require("../assets/logo.png")}
                 style={{
@@ -218,7 +216,6 @@ class LoginScren extends Component {
                 {this.renderButton()}
               </Card>
             </View>
-          </KeyboardAvoidingView>
         </TouchableWithoutFeedback >
       </View>
     );

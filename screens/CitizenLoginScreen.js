@@ -29,6 +29,7 @@ class LoginScren extends Component {
 
   componentWillMount() {
 
+    //firebase.auth().signOut()
 
 
     firebase
@@ -288,22 +289,6 @@ class LoginScren extends Component {
   }
 
   render() {
-
-    if (this.state.isLoading) {
-      return (
-        <View
-          style={{ flex: 1, alignContent: "center", justifyContent: "center", backgroundColor: '#000000', flexDirection: 'column' }}
-        >
-          {/* <AnimatedLoader
-            visible={this.state.isLoading}
-            source={require("../assets/196-material-wave-loading.json")}
-            animationStyle={styles.lottie}
-            speed={1}
-          /> */}
-        </View>
-      );
-    }
-
     return (
 
       <View style={{ backgroundColor: '#f9e090', marginBottom: 0, flex: 1 }}>
@@ -311,14 +296,9 @@ class LoginScren extends Component {
 
         <TouchableWithoutFeedback style={styles.container}
           onPress={Keyboard.dismiss}>
-          <KeyboardAvoidingView
-            behavior='padding'
-            keyboardVerticalOffset={50}
-          >
-            <View style={styles.login}>
-              {this.renderUser()}
-            </View>
-          </KeyboardAvoidingView>
+          <View style={styles.login}>
+            {this.renderUser()}
+          </View>
         </TouchableWithoutFeedback >
       </View>
     );
